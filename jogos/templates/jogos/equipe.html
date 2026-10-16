@@ -1,0 +1,69 @@
+{% extends 'jogos/base.html' %}
+{% load static %}
+
+{% block title %}
+Fênix | SGJogos
+{% endblock %}
+
+{% block content %}
+    <main class="conteudo">
+
+        <nav class="trilha"><a href="{% url 'index' %}">Equipes</a> / {{ equipe.nome}}</nav>
+
+        <header class="topo">
+            <span class="sobretitulo">Equipe</span>
+            <h1>{{ equipe.nome}}</h1>
+            <p class="descricao">{{ equipe.curso }} · 4 atletas</p>
+        </header>
+
+        {% if equipe.tecnico %}
+            <h2>Técnico</h2>
+
+            
+                <dl class="numeros ficha">
+                    <div>
+                        <dt>Nome</dt>
+                        <dd>{{ tecnico.equipe.nome }}</dd>
+                    </div>
+                    <div>
+                        <dt>E-mail</dt>
+                        <dd>{{ tecnico }}</dd>
+                    </div>
+                    <div>
+                        <dt>Telefone</dt>
+                        <dd>(84) 99999-1234</dd>
+                    </div>
+                </dl>
+        {% endif %}
+            <p class="aviso">Esta equipe ainda não tem técnico cadastrado.</p>
+
+        <h2>Atletas</h2>
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Modalidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ana Clara Fernandes</td>
+                        <td>20241094010001</td>
+                        <td>
+                            <ul class="modalidades">
+                                <li><a href="modalidade.html">Voleibol</a></li>
+                                <li><a class="individual" href="modalidade.html">Xadrez</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <!-- Quando a equipe não tiver atletas, a tabela deve ter apenas esta linha: -->
+                    <!-- <tr><td class="vazio" colspan="3">Nenhum atleta inscrito.</td></tr> -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}
